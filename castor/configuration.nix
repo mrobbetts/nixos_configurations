@@ -26,16 +26,16 @@
   };
 
   nixpkgs.overlays = [
-    (import ./overlays/nixos-rocm)
-    (import ./overlays/dotfiles/rocm.nix)
-    (import ./overlays/syng-nix-overlay)
+    (import /nix/overlays/nixos-rocm)
+    (import /nix/overlays/dotfiles/rocm.nix)
+    (import /nix/overlays/syng-nix-overlay)
 #    (import /etc/nixos/overlays/personal)
-    (import ./overlays/nixos_personal_overlay)
+    (import /nix/overlays/nixos_personal_overlay)
   ];
 
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./nixos_extra_modules
+    /nix/extra_modules
   ];
 
   #containers = (import ./extras/containers.nix) lib;
